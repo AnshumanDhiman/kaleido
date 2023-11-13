@@ -1,4 +1,5 @@
 import Logo from '../assets/logo.svg'
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -11,16 +12,16 @@ const Navbar = () => {
           </div>
           <ul className="flex space-x-4">
             <li>
-              <a href="#" className="hover:text-gray-300">Home</a>
+              <Link to="/" className="hover:text-gray-300">Home</Link>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-300">About</a>
+              <Link to="/about" className="hover:text-gray-300">About</Link>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-300">Services</a>
+              <Link to="/services" className="hover:text-gray-300">Services</Link>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-300">Contact</a>
+              <Link to="/contact" className="hover:text-gray-300">Contact</Link>
             </li>
           </ul>
         </div>
