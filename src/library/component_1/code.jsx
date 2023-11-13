@@ -4,40 +4,85 @@ import "../../css/prism.css";
 import Prism from "prismjs";
 import Result from "./1";
 import "./1.css";
+import ClipboardJS from "clipboard";
+import { PiCopyThin } from "react-icons/pi";
+import toast from "react-hot-toast";
 
 const Code = () => {
-    const colorizeCodeSnippet = () => {
-        Prism.highlightAll();
-    
-        const getTab = document.getElementsByClassName("tab-list-item");
-        const getTabList = document.getElementsByClassName("tabs");
-        const uprDiv = document.getElementsByClassName("page-header");
-        for (let i = 0; i < getTab.length; i++) {
-          getTab[i].addEventListener("click", () => {
-            if (uprDiv[0].clientHeight < 217) {
-              getTabList[0].scrollIntoView();
-              window.scrollTo(0, 30);
-            }
-          });
+  const colorizeCodeSnippet = () => {
+    Prism.highlightAll();
+
+    const getTab = document.getElementsByClassName("tab-list-item");
+    const getTabList = document.getElementsByClassName("tabs");
+    const uprDiv = document.getElementsByClassName("page-header");
+    for (let i = 0; i < getTab.length; i++) {
+      getTab[i].addEventListener("click", () => {
+        if (uprDiv[0].clientHeight < 217) {
+          getTabList[0].scrollIntoView();
+          window.scrollTo(0, 30);
         }
-      };
-      useEffect(() => {
-        colorizeCodeSnippet();
       });
+    }
+  };
+  useEffect(() => {
+    colorizeCodeSnippet();
+    const clipboard = new ClipboardJS(".copy-to-clipboard");
+    return () => {
+      clipboard.destroy();
+    };
+  });
+
+  const handleReactCopyClick = () => {
+    const codeElement = document.querySelector("#react");
+    const codeToCopy = codeElement.innerText;
+
+    const tempTextarea = document.createElement("textarea");
+    tempTextarea.value = codeToCopy;
+    document.body.appendChild(tempTextarea);
+
+    tempTextarea.select();
+    document.execCommand("copy");
+
+    document.body.removeChild(tempTextarea);
+
+    toast.success("Code copied to clipboard!");
+  };
+
+  const handleCSSCopyClick = () => {
+    const codeElement = document.querySelector("#css");
+    const codeToCopy = codeElement.innerText;
+
+    const tempTextarea = document.createElement("textarea");
+    tempTextarea.value = codeToCopy;
+    document.body.appendChild(tempTextarea);
+
+    tempTextarea.select();
+    document.execCommand("copy");
+
+    document.body.removeChild(tempTextarea);
+
+    toast.success("CSS copied to clipboard!");
+  };
   return (
     <>
-    <div className="absolute w-full py-8">
-      <Result/>
-    
-    </div>
-   
-    <div className="mt-[35%] grid grid-cols-2 px-32 py-20 gap-12">
-    
-      <div className="">
-      React.jsx
-        <pre className="code language-js">
-          <code>
-            {`import { useEffect, useRef } from "react";
+      <div className="absolute w-full py-8">
+        <Result />
+      </div>
+
+      <div className="mt-[35%] grid grid-cols-2 px-32 py-20 gap-12">
+        <div className="">
+          <div className="flex justify-between items-center">
+            <span>React.jsx</span>
+            <button
+              className="copy-to-clipboard border-1 bg-white text-[#266d60] p-2 rounded-full"
+              onClick={handleReactCopyClick}
+            >
+              <PiCopyThin fontSize={22} />
+            </button>
+          </div>
+          <pre className="code language-js" id="react">
+            <code>
+              {`import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
 import logo from "../../../assets/gsap_components/logo.png";
@@ -96,21 +141,29 @@ return (
       <div className="letter A">A</div>
       <div className="letter L">L</div>
       <div className="letter P">P</div>
-      <div className="for">Media</div>
+      <div className="for">Letters</div>
       <img src={logo} className="w-40 gsap" />
     </div>
   </>
 );
 }
 `}
-          </code>
-        </pre>
-      </div>
-      <div>
-      Style.css
-        <pre className="code language-js">
-          <code>
-            {`  body {
+            </code>
+          </pre>
+        </div>
+        <div>
+          <div className="flex justify-between items-center">
+            <span>Style.css</span>
+            <button
+              className="copy-to-clipboard border-1 bg-white text-[#266d60] p-2 rounded-full"
+              onClick={handleCSSCopyClick}
+            >
+              <PiCopyThin fontSize={22} />
+            </button>
+          </div>
+          <pre className="code language-js" id="css">
+            <code>
+              {`  body {
   padding: 0;
   margin: 0;
 }
@@ -184,13 +237,12 @@ return (
   right: 30px;
 }
 `}
-          </code>
-        </pre>
+            </code>
+          </pre>
+        </div>
       </div>
-    </div>
-  </>
-  )
-}
-
+    </>
+  );
+};
 
 export default Code;

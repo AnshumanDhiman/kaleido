@@ -53,7 +53,7 @@ export default function Hero() {
         <div className="letter A">A</div>
         <div className="letter L">L</div>
         <div className="letter P">P</div>
-        <div className="for">Media</div>
+        <div className="for">Letters</div>
         <img src={logo} className="w-40 gsap" />
       </div>
   
