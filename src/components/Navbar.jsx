@@ -3,7 +3,7 @@ import Logo from '../assets/logo.svg'
 const Navbar = () => {
   return (
     <nav className="px-28 py-8">
-      <div className="container mx-auto">
+      <div className="mx-auto">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <img src={Logo} alt="Logo" className="w-10 h-10" />

@@ -1,15 +1,18 @@
-import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
-import Hero from "./components/Hero"
+import Home from "./pages/Home"
+import Flip from "./library/component_1/code"
+
+import { Route, Routes } from "react-router-dom";
 function App() {
 
   return (
     <>
-    <Navbar/>
-    <Hero/>
-     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-     <Footer/>
+  <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/flip" exact element={<Flip />} />
+      </Routes>
+
+  
+
     </>
   )
 }
