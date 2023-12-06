@@ -9,6 +9,9 @@ import { PiCopyThin } from "react-icons/pi";
 import toast from "react-hot-toast";
 
 const Code = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const colorizeCodeSnippet = () => {
     Prism.highlightAll();
 
@@ -139,8 +142,8 @@ return (
        (backtick_character)}
     >
       <div className="letter A">A</div>
-      <div className="letter L">L</div>
-      <div className="letter P">P</div>
+      <div className="letter B">B</div>
+      <div className="letter C">C</div>
       <div className="for">Letters</div>
       <img src={logo} className="w-40 gsap" />
     </div>
@@ -217,10 +220,10 @@ return (
 .A {
   background: rgb(101, 157, 17);
 }
-.L {
+.B {
   background: rgb(170, 111, 3);
 }
-.P {
+.C {
    background: rgb(86, 3, 86);
 }
 

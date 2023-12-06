@@ -51,8 +51,8 @@ export default function Hero() {
         className={`container ${layouts[curLayoutRef.current]}`}
       >
         <div className="letter A">A</div>
-        <div className="letter L">L</div>
-        <div className="letter P">P</div>
+        <div className="letter B">B</div>
+        <div className="letter C">C</div>
         <div className="for">Letters</div>
         <img src={logo} className="w-40 gsap" />
       </div>
