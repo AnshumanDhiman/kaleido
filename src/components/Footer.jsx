@@ -17,7 +17,7 @@ const Footer = () => {
             </h1>
             <input
               placeholder="example@gmail.com"
-              className="border placeholder-[#d8ebbd7d] border-[#d8ebbd7d] text-[#d8ebbdb6] mt-2 rounded-md p-2"
+              className="border placeholder-[#111A21] border-[#d8ebbd7d] text-[#111A21] mt-2 rounded-md p-2"
             />
             <button className="bg-[#d8ebbd] p-2 px-4 ml-2 rounded-md text-black font-semibold">
               Subscribe
