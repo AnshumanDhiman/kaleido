@@ -1,71 +1,64 @@
 import { Link } from 'react-router-dom';
 
-
 export default function Card() {
   const cardsData = [
-     {
-      title: "Flip for Gsap",
-      description:"",
+    {
+      title: "Flip for GSAP",
+      description: "A GSAP Flip animation example with smooth transitions.",
       link: "/flip",
-   
     },
     {
       title: "",
-      description:"",
-      link: "/",
+      description: "Learn about animations with GSAP.",
+      link: "/component2",
     },
     {
       title: "",
-      description:"",
-      link: "/",
-    },
-   
-    {
-      title: "",
-      description:"",
-      link: "/",
+      description: "Explore interactive animation techniques.",
+      link: "/component3",
     },
     {
       title: "",
-      description:"",
-      link: "/",
+      description: "Advanced GSAP components for developers.",
+      link: "/component4",
     },
     {
       title: "",
-      description:"",
-      link: "/",
+      description: "Creative animations for stunning UIs.",
+      link: "/component5",
     },
-    
-   
+    {
+      title: "",
+      description: "Build dynamic interactions with GSAP.",
+      link: "/component6",
+    },
   ];
 
   return (
     <>
-      <h1 className="text-center text-3xl font-extrabold p-8 text-[#d8ebbd] mt-[4%] z-[9999] m-auto">
+      <h1 className="text-center text-4xl font-extrabold p-8 text-[#d8ebbd] mt-[4%] z-[9999]">
         Browse GSAP Components
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 px-4 md:px-36 pb-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 px-6 md:px-36 pb-20">
         {cardsData.map((card, index) => (
           <Link
             to={card.link}
             key={index}
-            className="p-4 py-6 bg-[#272822] shadow-lg rounded-2xl transition ease-in-out hover:scale-105 cursor-pointer border-t-4 border-[#4caf50]"
-            style={{ position: "relative" }}
+            className="p-6 bg-gradient-to-r from-[#4caf50] to-[#81c784] border-2 border-[#4caf50] rounded-xl transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer transform hover:shadow-2xl hover:from-[#81c784] hover:to-[#4caf50]"
           >
-            <div className="flex flex-col items-center justify-center cursor-pointer py-4">
-           
-              <p className="mt-4 text-xl font-semibold text-[#cc99cd] cursor-pointer">
-                {card.title}
-              </p>
-              <p className="px-2 py-2 text-md text-center text-gray-400 cursor-pointer font-medium mb-4">
-                {card.description}
+            <div className="flex flex-col items-center justify-center py-2">
+              {/* Card Header */}
+              <div className="bg-[#4caf50] text-white rounded-t-xl w-full text-center p-4 border-b-2 border-[#388e3c]">
+                <h2 className="text-lg font-semibold hover:text-[#f1f8e9]">{card.title || "Untitled"}</h2>
+              </div>
+              {/* Description */}
+              <p className="px-2 py-2 text-sm text-center text-gray-100 font-medium mb-2 hover:text-[#f1f8e9]">
+                {card.description || "No description available."}
               </p>
             </div>
-          {card.component}
           </Link>
         ))}
       </div>
-   
     </>
   );
 }
